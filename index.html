@@ -7,42 +7,61 @@
     <style>
         body {
             margin: 0;
-            padding: 0;
-            height: 100vh;
-            background: url('https://source.unsplash.com/1600x900/?flowers,spring') no-repeat center center/cover;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
             font-family: 'Arial', sans-serif;
-            color: #fff;
+            text-align: center;
+            background: linear-gradient(to right, #8e9eab, #b3c6c7); /* Мягкие пастельные оттенки */
+            color: #2c3e50;
         }
-        .card {
-            background: rgba(0, 0, 0, 0.6);
-            padding: 20px 30px;
-            border-radius: 15px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-            max-width: 90%;
+        .container {
+            padding: 20px;
         }
         h1 {
-            font-size: 3em;
-            margin: 0;
+            font-size: 36px;
+            animation: fadeIn 2s ease-in-out;
         }
-        p {
-            font-size: 1.5em;
-            margin-top: 10px;
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
         }
-        .small-text {
-            font-size: 1em;
+        .image {
+            width: 90%;
+            max-width: 400px;
+            border-radius: 15px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+        }
+        .message {
+            font-size: 20px;
             margin-top: 15px;
+        }
+        .button {
+            margin-top: 20px;
+            padding: 10px 20px;
+            font-size: 18px;
+            color: white;
+            background: #7b8d8e; /* Спокойный оттенок */
+            border: none;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+        .button:hover {
+            background: #607f7f; /* Темнее на наведении */
         }
     </style>
 </head>
 <body>
-    <div class="card">
-        <h1>С 8 Марта, дорогая!</h1>
-        <p>Ты самая прекрасная и нежная! Пусть этот день принесёт тебе счастье, улыбки и море радости!</p>
-        <p class="small-text">Ты особенная, и я рад, что ты есть в моей жизни ❤️</p>
+    <div class="container">
+        <h1>С 8 Марта, дорогая подруга! 🌿</h1>
+        <img class="image" src="https://source.unsplash.com/400x300/?spring,flowers" alt="Весенний пейзаж">
+        <p class="message">Пусть этот день будет наполнен счастьем, улыбками и приятными сюрпризами! 🌸</p>
+        <button class="button" id="surpriseButton">Нажми сюда 🎁</button>
     </div>
+
+    <script>
+        // Сделаем так, чтобы кнопка точно работала
+        document.getElementById('surpriseButton').addEventListener('click', function() {
+            alert("Ты самая чудесная! Пусть у тебя всё будет прекрасно! 💖");
+        });
+    </script>
 </body>
 </html>
