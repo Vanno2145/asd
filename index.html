@@ -129,12 +129,13 @@
             }
         }
 
+        /* Стиль для цветка с анимацией */
         .flower-animation {
             display: none;
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
+            transform: translate(-50%, -50%) scale(0.5);
             animation: flowerFadeIn 2s ease-out forwards;
         }
 
@@ -203,10 +204,13 @@
 
                 // Создаем анимацию с букетом
                 const flowerImage = document.createElement('img');
-                flowerImage.src = 'https://source.unsplash.com/400x300/?flower';
+                flowerImage.src = 'https://source.unsplash.com/500x500/?flower,bouquet'; // Подключение картинки букета
                 flowerImage.alt = 'Beautiful Bouquet';
                 flowerImage.classList.add('flower-animation');
                 document.body.appendChild(flowerImage);
+
+                // Меняем фон на черный
+                document.body.style.backgroundColor = 'black';
             });
 
             modalContent.appendChild(modalText);
