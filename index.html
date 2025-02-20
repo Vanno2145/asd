@@ -128,12 +128,32 @@
                 padding: 12px 24px;
             }
         }
+
+        .flower-animation {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: flowerFadeIn 2s ease-out forwards;
+        }
+
+        @keyframes flowerFadeIn {
+            from {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            to {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Госпожа Житомирское быдло, поздравляю с 8 марта! 🎉</h1>
-        <p class="message">Сохраняй свой бьюти квин стайл, чтобы поражать собой других 😈. Очень рад, что когда-то познакомился с тобой!</p>
+        <p class="message">Сохраняй свой бьюти квин стайл, чтобы поражать своей красотой других 😈. Очень рад, что когда-то познакомился с тобой!</p>
         <button class="button" id="surpriseButton">Тык!</button>
     </div>
 
@@ -150,7 +170,7 @@
             modal.style.left = '0';
             modal.style.width = '100vw';
             modal.style.height = '100vh';
-            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.8)';
             modal.style.display = 'flex';
             modal.style.justifyContent = 'center';
             modal.style.alignItems = 'center';
@@ -169,28 +189,30 @@
             modalText.style.marginBottom = '20px';
             modalText.style.color = 'black'; // Чёрный текст для модалки
 
-            const closeButton = document.createElement('button');
-            closeButton.innerText = 'Закрыть';
-            closeButton.style.padding = '10px 20px';
-            closeButton.style.border = 'none';
-            closeButton.style.backgroundColor = '#3498db';
-            closeButton.style.color = '#fff';
-            closeButton.style.borderRadius = '5px';
-            closeButton.style.cursor = 'pointer';
+            const flowerButton = document.createElement('button');
+            flowerButton.innerText = 'Тык!';
+            flowerButton.style.padding = '10px 20px';
+            flowerButton.style.border = 'none';
+            flowerButton.style.backgroundColor = '#3498db';
+            flowerButton.style.color = '#fff';
+            flowerButton.style.borderRadius = '5px';
+            flowerButton.style.cursor = 'pointer';
 
-            closeButton.addEventListener('click', function() {
-                document.body.removeChild(modal); // Закрыть модалку
+            flowerButton.addEventListener('click', function() {
+                document.body.removeChild(modal); // Удаляем модалку
+
+                // Создаем анимацию с букетом
+                const flowerImage = document.createElement('img');
+                flowerImage.src = 'https://source.unsplash.com/400x300/?flower';
+                flowerImage.alt = 'Beautiful Bouquet';
+                flowerImage.classList.add('flower-animation');
+                document.body.appendChild(flowerImage);
             });
 
             modalContent.appendChild(modalText);
-            modalContent.appendChild(closeButton);
+            modalContent.appendChild(flowerButton);
             modal.appendChild(modalContent);
             document.body.appendChild(modal); // Показать модалку
-
-            // Если количество нажатий больше 3, меняем текст кнопки
-            if (clickCount > 3) {
-                document.getElementById('surpriseButton').innerText = "Не останавливайся! 😎";
-            }
         });
     </script>
 </body>
