@@ -129,55 +129,7 @@
             }
         }
 
-        /* Бумажные цветы для букета */
-        .flower {
-            position: absolute;
-            bottom: 10%;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
-            height: 80px;
-            background-color: #f28f7c; /* Цвет лепестков */
-            border-radius: 50%;
-            animation: flowerAnimation 2s ease-out forwards;
-        }
-
-        .flower:nth-child(1) {
-            left: 25%;
-            bottom: 15%;
-            background-color: #ff8c00;
-        }
-
-        .flower:nth-child(2) {
-            left: 40%;
-            bottom: 25%;
-            background-color: #ff1493;
-        }
-
-        .flower:nth-child(3) {
-            left: 60%;
-            bottom: 20%;
-            background-color: #ffff00;
-        }
-
-        .flower:nth-child(4) {
-            left: 75%;
-            bottom: 10%;
-            background-color: #00fa9a;
-        }
-
-        @keyframes flowerAnimation {
-            0% {
-                opacity: 0;
-                transform: translateX(-50%) scale(0.5);
-            }
-            100% {
-                opacity: 1;
-                transform: translateX(-50%) scale(1);
-            }
-        }
-
-        /* Стиль затемнения экрана */
+        /* Стиль для затемнения экрана */
         .darkScreen {
             position: fixed;
             top: 0;
@@ -187,6 +139,28 @@
             background-color: rgba(0, 0, 0, 0.8);
             z-index: 999;
         }
+
+        /* Анимация для появления букета */
+        .bouquet {
+            font-size: 4rem;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            animation: bouquetAnimation 2s ease-out forwards;
+        }
+
+        @keyframes bouquetAnimation {
+            0% {
+                opacity: 0;
+                transform: translate(-50%, -50%) scale(0.5);
+            }
+            100% {
+                opacity: 1;
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+
     </style>
 </head>
 <body>
@@ -206,16 +180,10 @@
             // Появление букета с анимацией
             setTimeout(function() {
                 const bouquet = document.createElement('div');
-                bouquet.classList.add('flower'); // Класс для создания цветка
-                document.body.appendChild(bouquet); // Добавляем цветок в DOM
-
-                // Создаем дополнительные цветы для букета
-                for (let i = 0; i < 3; i++) {
-                    const flower = document.createElement('div');
-                    flower.classList.add('flower');
-                    document.body.appendChild(flower);
-                }
-            }, 1000); // Букет появляется после небольшого задержки
+                bouquet.classList.add('bouquet');
+                bouquet.innerHTML = '💐'; // Эмодзи букета
+                document.body.appendChild(bouquet); // Добавляем букет в DOM
+            }, 1000); // Букет появляется через 1 секунду
         });
     </script>
 </body>
