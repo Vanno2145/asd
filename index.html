@@ -101,6 +101,20 @@
             transform: scale(1);
         }
 
+        .button:focus {
+            outline: none;
+            animation: buttonGlow 0.5s infinite alternate; /* Эффект мигания */
+        }
+
+        @keyframes buttonGlow {
+            0% {
+                box-shadow: 0 0 15px rgba(0, 255, 255, 1);
+            }
+            100% {
+                box-shadow: 0 0 25px rgba(255, 255, 0, 1);
+            }
+        }
+
         /* Адаптация для мобильных устройств */
         @media (max-width: 600px) {
             h1 {
@@ -153,6 +167,7 @@
             modalText.innerText = "Ты — настоящая звезда! Пусть этот день будет полон волшебства и радости! 💖";
             modalText.style.fontSize = '1.2rem';
             modalText.style.marginBottom = '20px';
+            modalText.style.color = 'black'; // Чёрный текст для модалки
 
             const closeButton = document.createElement('button');
             closeButton.innerText = 'Закрыть';
