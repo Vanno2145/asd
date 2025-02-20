@@ -58,7 +58,7 @@
         h1 {
             font-size: 2rem;
             animation: fadeInText 2s ease-in-out;
-            margin: 0 0 20px 0;
+            margin: 0 0 30px 0; /* Увеличенный отступ от заголовка */
         }
 
         @keyframes fadeInText {
@@ -79,20 +79,22 @@
         }
 
         .button {
-            margin-top: 25px;
-            padding: 12px 25px;
+            margin-top: 30px;
+            padding: 14px 28px;
             font-size: 18px;
             color: white;
-            background: linear-gradient(45deg, #ff6347, #ff1493, #ff8c00); /* Градиент для кнопки */
+            background: linear-gradient(45deg, #b3e0ff, #f6c7ff, #ffd1ff); /* Мягкий градиент */
             border: none;
             border-radius: 25px;
             cursor: pointer;
-            transition: background 0.3s, transform 0.3s;
+            transition: background 0.5s, transform 0.3s, box-shadow 0.3s;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
         }
 
         .button:hover {
-            background: linear-gradient(45deg, #ff1493, #ff6347, #ff8c00); /* Переливающийся эффект при наведении */
+            background: linear-gradient(45deg, #f6c7ff, #b3e0ff, #ffd1ff); /* Перелив при наведении */
             transform: scale(1.1);
+            box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
         }
 
         .button:active {
@@ -109,21 +111,62 @@
             }
             .button {
                 font-size: 16px;
-                padding: 10px 20px;
+                padding: 12px 24px;
             }
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <h1>Госпожа Житомирское быдло, поздравляю с 8 марта! 😈</h1>
+        <h1>Госпожа Житомирское быдло, поздравляю с 8 марта! 🎉</h1>
         <p class="message">Сохраняй свой бьюти квин стайл, чтобы поражать собой других 😈. Очень рад, что когда-то познакомился с тобой!</p>
         <button class="button" id="surpriseButton">Нажми сюда 🎁</button>
     </div>
 
     <script>
         document.getElementById('surpriseButton').addEventListener('click', function() {
-            alert("Ты самая чудесная! Пусть у тебя всё будет прекрасно! 💖");
+            // Модальное окно с приятным сообщением
+            const modal = document.createElement('div');
+            modal.style.position = 'fixed';
+            modal.style.top = '0';
+            modal.style.left = '0';
+            modal.style.width = '100vw';
+            modal.style.height = '100vh';
+            modal.style.backgroundColor = 'rgba(0, 0, 0, 0.6)';
+            modal.style.display = 'flex';
+            modal.style.justifyContent = 'center';
+            modal.style.alignItems = 'center';
+            modal.style.zIndex = '1000';
+
+            const modalContent = document.createElement('div');
+            modalContent.style.backgroundColor = '#fff';
+            modalContent.style.padding = '20px';
+            modalContent.style.borderRadius = '10px';
+            modalContent.style.textAlign = 'center';
+            modalContent.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.2)';
+
+            const modalText = document.createElement('p');
+            modalText.innerText = "Ты — настоящая звезда! Пусть этот день будет полон волшебства и радости! 💖";
+            modalText.style.fontSize = '1.2rem';
+            modalText.style.marginBottom = '20px';
+
+            const closeButton = document.createElement('button');
+            closeButton.innerText = 'Закрыть';
+            closeButton.style.padding = '10px 20px';
+            closeButton.style.border = 'none';
+            closeButton.style.backgroundColor = '#3498db';
+            closeButton.style.color = '#fff';
+            closeButton.style.borderRadius = '5px';
+            closeButton.style.cursor = 'pointer';
+
+            closeButton.addEventListener('click', function() {
+                document.body.removeChild(modal); // Закрыть модалку
+            });
+
+            modalContent.appendChild(modalText);
+            modalContent.appendChild(closeButton);
+            modal.appendChild(modalContent);
+            document.body.appendChild(modal); // Показать модалку
         });
     </script>
 </body>
