@@ -12,7 +12,7 @@
             background: linear-gradient(135deg, #ff9d76, #f6e1b3, #c3f0ca); /* Мягкий градиент */
             background-size: 300% 300%;
             animation: gradientMove 10s ease infinite;
-            color: #2c3e50;
+            color: white; /* Белый цвет текста */
             height: 100vh;
             display: flex;
             justify-content: center;
@@ -120,11 +120,15 @@
     <div class="container">
         <h1>Госпожа Житомирское быдло, поздравляю с 8 марта! 🎉</h1>
         <p class="message">Сохраняй свой бьюти квин стайл, чтобы поражать собой других 😈. Очень рад, что когда-то познакомился с тобой!</p>
-        <button class="button" id="surpriseButton">Нажми сюда 🎁</button>
+        <button class="button" id="surpriseButton">Тык!</button>
     </div>
 
     <script>
+        let clickCount = 0; // Счётчик кликов
+
         document.getElementById('surpriseButton').addEventListener('click', function() {
+            clickCount++; // Увеличиваем счётчик при каждом клике
+
             // Модальное окно с приятным сообщением
             const modal = document.createElement('div');
             modal.style.position = 'fixed';
@@ -167,6 +171,11 @@
             modalContent.appendChild(closeButton);
             modal.appendChild(modalContent);
             document.body.appendChild(modal); // Показать модалку
+
+            // Если количество нажатий больше 3, меняем текст кнопки
+            if (clickCount > 3) {
+                document.getElementById('surpriseButton').innerText = "Не останавливайся! 😎";
+            }
         });
     </script>
 </body>
