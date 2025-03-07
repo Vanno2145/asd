@@ -9,7 +9,7 @@
             margin: 0;
             font-family: 'Arial', sans-serif;
             text-align: center;
-            background: linear-gradient(135deg, #ff9d76, #f6e1b3, #c3f0ca); /* Мягкий градиент */
+            background: linear-gradient(135deg, #ff9d76, #f6e1b3, #c3f0ca); 
             background-size: 300% 300%;
             animation: gradientMove 10s ease infinite;
             color: white; /* Белый цвет текста */
@@ -41,7 +41,7 @@
             transform: translateY(-50px);
             animation: slideIn 1.5s ease-out forwards;
             width: 100%;
-            max-width: 400px; /* Максимальная ширина для контейнера */
+            max-width: 400px; 
         }
 
         @keyframes slideIn {
@@ -58,7 +58,7 @@
         h1 {
             font-size: 2rem;
             animation: fadeInText 2s ease-in-out;
-            margin: 0 0 30px 0; /* Увеличенный отступ от заголовка */
+            margin: 0 0 30px 0; 
         }
 
         @keyframes fadeInText {
@@ -83,7 +83,7 @@
             padding: 14px 28px;
             font-size: 18px;
             color: white;
-            background: linear-gradient(45deg, #b3e0ff, #f6c7ff, #ffd1ff); /* Мягкий градиент */
+            background: linear-gradient(45deg, #b3e0ff, #f6c7ff, #ffd1ff); 
             border: none;
             border-radius: 25px;
             cursor: pointer;
@@ -92,7 +92,7 @@
         }
 
         .button:hover {
-            background: linear-gradient(45deg, #f6c7ff, #b3e0ff, #ffd1ff); /* Перелив при наведении */
+            background: linear-gradient(45deg, #f6c7ff, #b3e0ff, #ffd1ff);
             transform: scale(1.1);
             box-shadow: 0 8px 18px rgba(0, 0, 0, 0.3);
         }
@@ -103,7 +103,7 @@
 
         .button:focus {
             outline: none;
-            animation: buttonGlow 0.5s infinite alternate; /* Эффект мигания */
+            animation: buttonGlow 0.5s infinite alternate; 
         }
 
         @keyframes buttonGlow {
@@ -115,7 +115,7 @@
             }
         }
 
-        /* Адаптация для мобильных устройств */
+        
         @media (max-width: 600px) {
             h1 {
                 font-size: 1.8rem;
@@ -129,7 +129,7 @@
             }
         }
 
-        /* Модальное окно */
+        
         .modal {
             display: none;
             position: fixed;
@@ -152,19 +152,19 @@
 </head>
 <body>
     <div class="container">
-        <h1>Госпожа Житомирское быдло, поздравляю с 8 марта! 🎉</h1>
-        <p class="message">Сохраняй свой бьюти квин стайл, чтобы поражать своей красотой других 😈. Очень рад, что когда-то познакомился с тобой!</p>
+        <h1>Госпожа Надежда, поздравляю с 8 марта! 🎉</h1>
+        <p class="message">Любви не желаю, желаю побольше приключений на жопу, чтобы жизнь не была скучной! Очень рад, что когда-то познакомился с тобой! С 8 марта красотка!😈</p>
         <button class="button" id="surpriseButton">Тык!</button>
     </div>
 
-    <!-- Модальное окно -->
+  
     <div id="modal" class="modal">
         Букетик через интернетик 💐
     </div>
 
     <script>
         document.getElementById('surpriseButton').addEventListener('click', function() {
-            // Показываем модальное окно с текстом
+            
             const modal = document.getElementById('modal');
             modal.classList.add('show');
         });
